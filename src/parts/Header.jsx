@@ -4,15 +4,9 @@ import BrandIcon from "parts/IconText";
 import { useLocation } from "react-router-dom";
 
 export default function Header(props) {
-  // const pathname = "";
   // const getNavLinkClass = (path) => {
   //   return props.location.pathname === path ? " active" : "";
   // };
-  // console.log(props);
-  // const { pathname } = props.location;
-  // function getNavLinkClass(path) {
-  //   return pathname === path ? " active" : "";
-  // }
   const location = useLocation();
   const getNavLinkClass = (path) => {
     return location.pathname === path ? " active" : "";
@@ -23,7 +17,7 @@ export default function Header(props) {
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light">
           <BrandIcon />
-          <div className="collapse navbar-collapse">
+          <div className="collapse navbar-collapse justify-content-end">
             <ul className="navbar-nav ml-auto">
               <li className={`nav-item${getNavLinkClass("/")}`}>
                 <Button className="nav-link" type="link" href="/">
