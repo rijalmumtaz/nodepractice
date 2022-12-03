@@ -58,7 +58,9 @@
     font-family: "Poppins", sans-serif;
     text-decoration: none;
     color: $primary;
-    
+    &:hover{
+        color: $primary;
+    }
     .text-gray-900{
         color: $gray-900;
     }
