@@ -14,7 +14,7 @@
   --#{$prefix}btn-bg: transparent;
   --#{$prefix}btn-border-width: #{$btn-border-width};
   --#{$prefix}btn-border-color: transparent;
-  --#{$prefix}btn-border-radius: #{$btn-border-radius};
+  --#{$prefix}btn-border-radius: #{4px};
   --#{$prefix}btn-hover-border-color: transparent;
   --#{$prefix}btn-box-shadow: #{$btn-box-shadow};
   --#{$prefix}btn-disabled-opacity: #{$btn-disabled-opacity};
@@ -110,6 +110,10 @@
     border-color: var(--#{$prefix}btn-disabled-border-color);
     opacity: var(--#{$prefix}btn-disabled-opacity);
     @include box-shadow(none);
+  }
+
+  &.btn-shadow{
+    box-shadow: 0px 8px 15px rgba($primary, 0.3);
   }
 }
 
