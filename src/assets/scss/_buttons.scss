@@ -22,6 +22,7 @@
   // scss-docs-end btn-css-vars
 
   display: inline-block;
+  min-height: 50px;
   padding: var(--#{$prefix}btn-padding-y) var(--#{$prefix}btn-padding-x);
   font-family: var(--#{$prefix}btn-font-family);
   @include font-size(var(--#{$prefix}btn-font-size));
