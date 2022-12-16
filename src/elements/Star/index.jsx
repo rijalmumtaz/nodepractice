@@ -4,7 +4,7 @@ import propTypes from "prop-types";
 import "./index.scss";
 
 export default function Star({ classname, value, height, width, spacing }) {
-  const decimals = Number(value) % 1;
+  const decimals = Number(value) % 1; // biar value yang decimal kaya 3,4 jadi 0,4. function Number() untuk float/decimal number
 
   const star = [];
   let leftPos = 0; //left position
