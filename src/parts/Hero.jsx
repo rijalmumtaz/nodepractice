@@ -28,7 +28,7 @@ export default function Hero(props) {
           </h1>
           <p
             className="mb-4 fw-light text-gray-500 w-75"
-            style={{ lineHeight: "170%" }}
+            style={{ lineHeight: "170%", color: "#b0b0b0" }}
           >
             We provide what you need to enjoy your holiday with family. Time to
             make another memorable moments.

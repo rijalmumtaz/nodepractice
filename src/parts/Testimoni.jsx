@@ -30,7 +30,7 @@ export default function Testimoni({ data }) {
           <h4 style={{ marginBottom: 40 }}>{data.name}</h4>
           <Star value={data.rate} width={35} height={35} spacing={4} />
           <h5 className="h2 fw-light line-height-2 my-3">{data.content}</h5>
-          <span className="text-gray-500">
+          <span className="text-gray-500 fw-light" style={{ color: "#b0b0b0" }}>
             {data.familyName}, {data.familyOccupation}
           </span>
           <div>

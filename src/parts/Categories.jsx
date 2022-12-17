@@ -21,7 +21,7 @@ export default function Categories({ data }) {
                   key={`category-${index1}-item-${index2}`}
                 >
                   <div className="card">
-                    {item.isPopular && (
+                    {item.isPopular && ( // kalo item itu popular tambahin "div.tag"
                       <div className="tag">
                         Popular <span className="fw-light">Choice</span>
                       </div>
@@ -41,7 +41,10 @@ export default function Categories({ data }) {
                       >
                         <h5 className="h4">{item.name}</h5>
                       </Button>
-                      <span className="text-gray-500">
+                      <span
+                        className="text-gray-500 fw-light"
+                        style={{ color: "#b0b0b0" }}
+                      >
                         {item.city}, {item.country}
                       </span>
                     </div>
