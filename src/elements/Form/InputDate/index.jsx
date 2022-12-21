@@ -53,6 +53,7 @@ export default function Number(props) {
           placeholder={placeholder ? placeholder : "0"} //cek apakah place holder null, undefined, atau ""
           value={String(InputValue)}
           onChange={onChange}
+          aria-label="input-number"
         />
         <div className="input-group-append">
           <span className="input-group-text plus" onChange={plus}>
