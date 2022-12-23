@@ -7,7 +7,6 @@ export default function Number(props) {
     props;
 
   const [InputValue, setInputValue] = useState(`${prefix}${value}${suffix}`);
-  // const [InputValue, setInputValue] = useState(`${value}`);
 
   const onChange = (e) => {
     let value = String(e.target.value);
@@ -20,7 +19,7 @@ export default function Number(props) {
     if (isNumeric && +value <= max && +value >= min) {
       // "+value" sama kaya Number(value)
       props.onChange({
-        terget: {
+        target: {
           name: name,
           value: +value,
         },
@@ -28,7 +27,6 @@ export default function Number(props) {
       setInputValue(
         `${prefix}${value}${suffix}${isSuffixPlural && value > 1 ? "s" : ""}`
       );
-      // setInputValue(`${value}`);
     }
   };
 
@@ -46,7 +44,7 @@ export default function Number(props) {
         <div className="input-group-prepend">
           <span
             className="input-group-text minus"
-            onChange={minus}
+            onClick={minus}
           >
             {" "}
             -{" "}
@@ -66,7 +64,7 @@ export default function Number(props) {
         <div className="input-group-append">
           <span
             className="input-group-text plus"
-            onChange={plus}
+            onClick={plus}
           >
             {" "}
             +{" "}

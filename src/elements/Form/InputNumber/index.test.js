@@ -2,52 +2,26 @@ import React, { useState } from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import InputNumber from "./index";
 
-function TestInput() {
-  const [value, setValue] = useState("");
-  function handleChange(e) {
-    const eTarget = e.target.value;
-    console.log(eTarget);
-    // const value = e.target.value;
-    // const inputtedValue = value;
-    setValue(e.target.value);
-    // this.setState({ [e.target.name]: e.target.value });
-    // this.setState({ [e.currentTarget.name]: e.currentTarget.value });
+class TestInput extends React.Component {
+  state = {
+    value: "",
+  };
+  handleChange = (e) => {
+    console.log("event: ", e);
+    console.log("value: ", e.target.value);
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  render() {
+    return (
+      <InputNumber
+        max={30}
+        onChange={this.handleChange}
+        name="value"
+        value={this.state.value}
+      />
+    );
   }
-
-  return (
-    <InputNumber
-      max={30}
-      onChange={handleChange}
-      name="value"
-      value={value}
-    />
-  );
 }
-
-// class TestInput extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       value: "",
-//     };
-
-//     this.handleChange = this.handleChange(this);
-//   }
-//   handleChange = (e) => {
-//     this.setState({ value: e.target.value });
-//     // this.setState({ [e.currentTarget.name]: e.currentTarget.value });
-//   };
-//   render() {
-//     return (
-//       <InputNumber
-//         max={30}
-//         onChange={this.handleChange}
-//         name="value"
-//         value={this.state.value}
-//       />
-//     );
-//   }
-// }
 
 const setup = () => {
   const utils = render(<TestInput />);
