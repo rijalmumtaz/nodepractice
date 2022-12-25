@@ -5,9 +5,6 @@ import { Fade } from "react-reveal";
 import { useLocation } from "react-router-dom";
 
 export default function Header(props) {
-  // const getNavLinkClass = (path) => {
-  //   return props.location.pathname === path ? " active" : "";
-  // };
   const location = useLocation();
   const getNavLinkClass = (path) => {
     return location.pathname === path ? " active" : "";
@@ -22,22 +19,38 @@ export default function Header(props) {
             <div className="collapse navbar-collapse justify-content-end">
               <ul className="navbar-nav ml-auto">
                 <li className={`nav-item${getNavLinkClass("/")}`}>
-                  <Button className="nav-link" type="link" href="/">
+                  <Button
+                    className="nav-link"
+                    type="link"
+                    href="/"
+                  >
                     Home
                   </Button>
                 </li>
                 <li className={`nav-item${getNavLinkClass("/browse-by")}`}>
-                  <Button className="nav-link" type="link" href="/browse-by">
+                  <Button
+                    className="nav-link"
+                    type="link"
+                    href="/browse-by"
+                  >
                     Browse By
                   </Button>
                 </li>
                 <li className={`nav-item${getNavLinkClass("/stories")}`}>
-                  <Button className="nav-link" type="link" href="/stories">
+                  <Button
+                    className="nav-link"
+                    type="link"
+                    href="/stories"
+                  >
                     Stories
                   </Button>
                 </li>
                 <li className={`nav-item${getNavLinkClass("/agents")}`}>
-                  <Button className="nav-link" type="link" href="/agents">
+                  <Button
+                    className="nav-link"
+                    type="link"
+                    href="/agents"
+                  >
                     Agents
                   </Button>
                 </li>

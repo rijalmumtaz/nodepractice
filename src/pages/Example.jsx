@@ -3,7 +3,7 @@ import InputNumber from "elements/Form/InputNumber";
 
 export default class Example extends React.Component {
   state = {
-    value: "",
+    value: "1",
   };
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
