@@ -11,7 +11,10 @@ export default function Testimoni({ data }) {
       <section className="container">
         <div className="row align-items-center">
           {/* //kiri */}
-          <div className="col-auto" style={{ marginRight: 70 }}>
+          <div
+            className="col-auto"
+            style={{ marginRight: 70 }}
+          >
             <div
               className="testimonial-hero"
               style={{ margin: `30px 0 0 30px` }}
@@ -30,10 +33,15 @@ export default function Testimoni({ data }) {
               />
             </div>
           </div>
-          {/* //kiri */}
+          {/* //kanan */}
           <div className="col">
             <h4 style={{ marginBottom: 40 }}>{data.name}</h4>
-            <Star value={data.rate} width={35} height={35} spacing={4} />
+            <Star
+              value={data.rate}
+              width={35}
+              height={35}
+              spacing={4}
+            />
             <h5 className="h2 fw-light line-height-2 my-3">{data.content}</h5>
             <span
               className="text-gray-500 fw-light"

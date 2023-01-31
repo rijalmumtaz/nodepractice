@@ -35,12 +35,13 @@ export default function Date(props) {
   const refDate = useRef(null);
   const handleClickOutside = (event) => {
     if (refDate && refDate.current.contains(event.target)) {
+      // "refDate.current.contains()" for checking refDate is already at DOM or not
       setIsShowed(false);
     }
   };
 
   const check = (focus) => {
-    focus.indexOf(1) < 0;
+    focus.indexOf(1) < 0 && setIsShowed(false);
   };
 
   const displayDate = `${value.startDate ? formatDate(value.startDate) : ""}${
@@ -54,13 +55,32 @@ export default function Date(props) {
     >
       <div className="input-group">
         <div className="input-group-prepend bg-gray-900">
-          <div className="input-group-text">
+          <span className="input-group-text">
             <img
               src={iconCalendar}
-              alt=""
+              alt="icon calendar"
+            />
+          </span>
+        </div>
+        <input
+          type="text"
+          readOnly
+          className="form-control"
+          value={displayDate}
+          placeholder={placeholder}
+          onClick={() => setIsShowed(!isShowed)}
+        />
+        {isShowed && (
+          <div className="date-range-wrapper">
+            <DateRange
+              editableDateInputs={true}
+              onChange={datePickerChange}
+              moveRangeOnFirstSelection={false}
+              onRangeFocusChange={check}
+              ranges={{ value }}
             />
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
