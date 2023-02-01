@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import InputNumber from "elements/Form/InputNumber";
+import InputDate from "elements/Form/InputDate";
 
 export default class Example extends React.Component {
   state = {
-    value: "1",
+    value: {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
   };
   handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ value: e.target.value });
   };
   render() {
     return (
@@ -16,9 +20,7 @@ export default class Example extends React.Component {
           style={{ height: "100vh" }}
         >
           <div className="col-auto">
-            <InputNumber
-              suffix=" night"
-              isSuffixPlural
+            <InputDate
               max={30}
               onChange={this.handleChange}
               name="value"

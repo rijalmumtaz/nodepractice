@@ -4,7 +4,7 @@ import propTypes from "prop-types";
 import { DateRange } from "react-date-range";
 
 import "./index.scss";
-import "react-date-range/dist/style.css"; //main css file
+import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css"; //theme css file
 
 import formatDate from "utils/formatDate";
@@ -47,11 +47,11 @@ export default function Date(props) {
   const displayDate = `${value.startDate ? formatDate(value.startDate) : ""}${
     value.endDate ? " - " + formatDate(value.endDate) : ""
   }`;
-
   return (
     <div
       ref={refDate}
       className={["input-date mb-3", props.outerClassName].join(" ")}
+      aria-label="input-date"
     >
       <div className="input-group">
         <div className="input-group-prepend bg-gray-900">
@@ -66,18 +66,22 @@ export default function Date(props) {
           type="text"
           readOnly
           className="form-control"
+          aria-label="form-control"
           value={displayDate}
           placeholder={placeholder}
           onClick={() => setIsShowed(!isShowed)}
         />
         {isShowed && (
-          <div className="date-range-wrapper">
+          <div
+            className="date-range-wrapper"
+            aria-label="date-range-wrapper"
+          >
             <DateRange
               editableDateInputs={true}
               onChange={datePickerChange}
               moveRangeOnFirstSelection={false}
               onRangeFocusChange={check}
-              ranges={{ value }}
+              ranges={[value]}
             />
           </div>
         )}
