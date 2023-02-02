@@ -33,15 +33,16 @@ export default function Date(props) {
   });
 
   const refDate = useRef(null);
+
   const handleClickOutside = (event) => {
-    if (refDate && refDate.current.contains(event.target)) {
-      // "refDate.current.contains()" for checking refDate is already at DOM or not
+    if (refDate && !refDate.current.contains(event.target)) {
+      // "refDate.current.contains()" for checking refDate is already at DOM or not and this is so important uk
       setIsShowed(false);
     }
   };
 
   const check = (focus) => {
-    focus.indexOf(1) < 0 && setIsShowed(false);
+    focus.indexOf(1 < 0 && setIsShowed(false));
   };
 
   const displayDate = `${value.startDate ? formatDate(value.startDate) : ""}${

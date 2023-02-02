@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import InputDate from "elements/Form/InputDate";
+import { InputDate } from "elements/Form";
 
 export default class Example extends React.Component {
   state = {
