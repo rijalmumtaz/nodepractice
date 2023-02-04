@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { InputDate } from "elements/Form";
+import Breadcrumb from "elements/Breadcrumb";
 
 export default class Example extends React.Component {
+  breadcrumbList = [
+    { pageTitle: "Home", pageHref: "" },
+    { pageTitle: "House Details", pageHref: "" },
+  ];
+
   state = {
     value: {
       startDate: new Date(),
@@ -20,12 +26,7 @@ export default class Example extends React.Component {
           style={{ height: "100vh" }}
         >
           <div className="col-auto">
-            <InputDate
-              max={30}
-              onChange={this.handleChange}
-              name="value"
-              value={this.state.value}
-            />
+            <Breadcrumb data={this.breadcrumbList} />
           </div>
         </div>
       </div>
