@@ -2,9 +2,6 @@ import React from "react";
 
 import ImageHero from "assets/images/img-hero.jpg";
 import ImageHero_ from "assets/images/img-hero-frame.jpg";
-import IconCities from "assets/images/Icons/icon-cities.svg";
-import IconTraveler from "assets/images/Icons/icon-traveler.svg";
-import IconTreasure from "assets/images/Icons/icon-treasure.svg";
 
 import Button from "elements/Button";
 
@@ -23,7 +20,10 @@ export default function Hero(props) {
       <section className="container pt-4">
         <div className="row align-items-center">
           {/* Kiri */}
-          <div className="col-auto pr-5" style={{ width: 530 }}>
+          <div
+            className="col-auto pr-5"
+            style={{ width: 530 }}
+          >
             <h1 className="fw-bold line-height-1 mb-3">
               Forget Busy Work, <br />
               Start Next Vacation
@@ -44,12 +44,18 @@ export default function Hero(props) {
               Show Me Now
             </Button>
 
-            <div className="row" style={{ marginTop: 80 }}>
-              <div className="col-auto" style={{ marginRight: 35 }}>
+            <div
+              className="row"
+              style={{ marginTop: 80 }}
+            >
+              <div
+                className="col-auto"
+                style={{ marginRight: 35 }}
+              >
                 <img
                   width="36"
                   height="36"
-                  src={IconTraveler}
+                  src="/images/icon-travelers.svg"
                   alt={`${props.data.travelers} Travelers`}
                 />
                 <h6 className="mt-3">
@@ -57,11 +63,14 @@ export default function Hero(props) {
                   <span className="text-gray-500 fw-light">travelers</span>
                 </h6>
               </div>
-              <div className="col-auto" style={{ marginRight: 35 }}>
+              <div
+                className="col-auto"
+                style={{ marginRight: 35 }}
+              >
                 <img
                   width="36"
                   height="36"
-                  src={IconTreasure}
+                  src="/images/icon-treasure.svg"
                   alt={`${props.data.treasures} Treasures`}
                 />
                 <h6 className="mt-3">
@@ -73,7 +82,7 @@ export default function Hero(props) {
                 <img
                   width="36"
                   height="36"
-                  src={IconCities}
+                  src="/images/icon-cities.svg"
                   alt={`${props.data.cities} Cities`}
                 />
                 <h6 className="mt-3">
