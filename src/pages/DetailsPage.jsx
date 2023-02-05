@@ -32,7 +32,7 @@ export default class DetailsPage extends Component {
               <PageDetailDescription data={ItemDetails}></PageDetailDescription>
             </div>
             <div className="col-5">
-              <BookingForm ItemDetails={ItemDetails}></BookingForm>
+              <BookingForm itemDetails={ItemDetails}></BookingForm>
             </div>
           </div>
         </section>

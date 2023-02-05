@@ -24,16 +24,17 @@ export default class BookingForm extends Component {
     this.setState({
       ...this.state, //spread the state
       data: {
-        ...this.state.data, //
+        ...this.state.data,
         [e.target.name]: e.target.value,
       },
     });
   };
 
-  componentDidMount(prevProps, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     const { data } = this.state;
 
     if (prevState.data.date !== data.date) {
+      console.log(data);
       //when previous data.state doesnt equals with state.date
       const startDate = new Date(data.date.startDate);
       const endDate = new Date(data.date.endDate);
@@ -88,6 +89,37 @@ export default class BookingForm extends Component {
           name="duration"
           value={data.duration}
         />
+
+        <label htmlFor="date">Pick a date</label>
+        <InputDate
+          onChange={this.updateData}
+          name="date"
+          value={data.date}
+        />
+        <h6
+          className="text-gray-500 fw-light"
+          style={{ marginBottom: 40 }}
+        >
+          You will pay{" "}
+          <span className="text-gray-900 fw-bold">
+            ${itemDetails.price * data.duration} USD
+          </span>{" "}
+          per{" "}
+          <span className="text-gray-900 fw-bold">
+            {data.duration}{" "}
+            {data.duration > 1 ? `${itemDetails.unit}s` : `${itemDetails.unit}`}
+          </span>
+        </h6>
+
+        <Button
+          className="btn"
+          hasShadow
+          isPrimary
+          isBlock
+          onClick={startBooking}
+        >
+          Continue to Book
+        </Button>
       </div>
     );
   }
