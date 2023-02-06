@@ -34,7 +34,6 @@ export default class BookingForm extends Component {
     const { data } = this.state;
 
     if (prevState.data.date !== data.date) {
-      console.log(data);
       //when previous data.state doesnt equals with state.date
       const startDate = new Date(data.date.startDate);
       const endDate = new Date(data.date.endDate);
