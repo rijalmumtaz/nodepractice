@@ -76,7 +76,7 @@ export default class BookingForm extends Component {
       >
         <div className="mb-3">Start Booking</div>
         <h5 className="h2 text-teal mb-4">
-          ${itemDetails.price}{" "}
+          <span style={{ color: "#1ABC9C" }}>${itemDetails.price}</span>{" "}
           <span className="text-gray-500 fw-light">per {itemDetails.unit}</span>
         </h5>
 
