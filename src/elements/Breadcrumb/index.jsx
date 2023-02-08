@@ -6,11 +6,10 @@ import Button from "elements/Button";
 import "./index.scss";
 
 export default function Breadcrumb(props) {
-  const className = [props.className];
   return (
     <nav aria-label="breadcrumb">
       <ul
-        className={className.join(" ")}
+        className={[props.className].join(" ")}
         style={{ listStyleType: "none", display: "inline-flex" }}
       >
         {props.data.map((item, index) => {

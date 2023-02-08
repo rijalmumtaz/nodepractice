@@ -10,6 +10,27 @@ export default function Header(props) {
     return location.pathname === path ? " active" : "";
   };
   // console.log("pathname", location.pathname);
+
+  if (props.isCentered) {
+    return (
+      <Fade>
+        <header className="spacing-sm">
+          <div className="container">
+            <div className="navbar navbar-expand-lg navbar-lg">
+              <Button
+                className="brand-text-logo mx-auto"
+                href=""
+                type="link"
+              >
+                Stay<span className="text-gray-900">cation.</span>
+              </Button>
+            </div>
+          </div>
+        </header>
+      </Fade>
+    );
+  }
+
   return (
     <Fade>
       <header className="spacing-sm">
