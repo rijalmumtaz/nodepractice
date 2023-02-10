@@ -7,7 +7,10 @@ export default function Footer() {
     <footer>
       <div className="container">
         <div className="row">
-          <div className="col-auto" style={{ width: 380 }}>
+          <div
+            className="col-auto"
+            style={{ width: 380 }}
+          >
             <IconText />
             <p className="brand-tagline">
               We kaboom your beauty holiday instantly and memorable.
@@ -17,17 +20,26 @@ export default function Footer() {
             <h6 className="mt-2">For Beginner</h6>
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
-                <Button type="link" href="/register">
+                <Button
+                  type="link"
+                  href="/register"
+                >
                   New Account
                 </Button>
               </li>
               <li className="list-group-item">
-                <Button type="link" href="/properties">
+                <Button
+                  type="link"
+                  href="/properties"
+                >
                   Start Booking Room
                 </Button>
               </li>
               <li className="list-group-item">
-                <Button type="link" href="/use-payments">
+                <Button
+                  type="link"
+                  href="/use-payments"
+                >
                   Use Payments
                 </Button>
               </li>
@@ -37,17 +49,26 @@ export default function Footer() {
             <h6 className="mt-2">Explore Us</h6>
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
-                <Button type="link" href="/careers">
+                <Button
+                  type="link"
+                  href="/careers"
+                >
                   Our Careers
                 </Button>
               </li>
               <li className="list-group-item">
-                <Button type="link" href="/privacy">
+                <Button
+                  type="link"
+                  href="/privacy"
+                >
                   Privacy
                 </Button>
               </li>
               <li className="list-group-item">
-                <Button type="link" href="/terms">
+                <Button
+                  type="link"
+                  href="/terms"
+                >
                   Terms and Conditions
                 </Button>
               </li>
@@ -66,7 +87,11 @@ export default function Footer() {
                 </Button>
               </li>
               <li className="list-group-item">
-                <Button isExternal type="link" href="tel:+622122081996">
+                <Button
+                  isExternal
+                  type="link"
+                  href="tel:+62895377066494"
+                >
                   021 - 2208 - 1996
                 </Button>
               </li>
