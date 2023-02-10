@@ -11,6 +11,8 @@ export default function Header(props) {
   };
   // console.log("pathname", location.pathname);
 
+  //aku mau commit
+
   if (props.isCentered) {
     return (
       <Fade>
