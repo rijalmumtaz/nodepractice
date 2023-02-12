@@ -57,6 +57,7 @@ export default function Testimoni({ data }) {
                 isPrimary
                 type="link"
                 href={`/testimonial/${data._id}`}
+                // href={`/example`}
               >
                 Read Their Story
               </Button>
