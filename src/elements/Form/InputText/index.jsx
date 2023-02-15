@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import propTypes from "prop-types";
 
 import "./index.scss";
 
 export default function Text(props) {
+  const {
+    value,
+    type,
+    placeholder,
+    name,
+    prepend,
+    append,
+    outerClassName,
+    inputClassName,
+    errorResponse,
+  } = props;
+
+  const [hasError, setHasError] = useState(null);
+  let pattern = "";
+  if (type === "email") pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+s/;
+  if (type === "tel") pattern = "[0-9]*";
+
   return <div>index</div>;
 }
 
@@ -23,5 +40,5 @@ Text.propTypes = {
   type: propTypes.string,
   placeholder: propTypes.string,
   outerClassName: propTypes.string,
-  innerClassName: propTypes.string,
+  inputClassName: propTypes.string,
 };
