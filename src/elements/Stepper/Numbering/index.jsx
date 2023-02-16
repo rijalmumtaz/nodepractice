@@ -10,6 +10,7 @@ export default function Numbering({ style, className, data, current }) {
       <ol
         className={["stepper", className].join(" ")}
         style={style}
+        aria-label="stepper"
       >
         {keysOfData.map((list, index) => {
           let isActive = list === current ? "active" : "";
