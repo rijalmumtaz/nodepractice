@@ -3,10 +3,12 @@ import { Fade } from "react-reveal";
 
 export default function Controller(props) {
   return (
-    <section className="container">
-      <div className="row justify-content-center">
-        <div className="col-3">{props.children}</div>
-      </div>
-    </section>
+    <Fade>
+      <section className="container">
+        <div className="row justify-content-center">
+          <div className="col-3">{props.children}</div>
+        </div>
+      </section>
+    </Fade>
   );
 }
