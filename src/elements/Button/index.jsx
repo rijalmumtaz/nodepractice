@@ -9,6 +9,7 @@ export default function Button(props) {
   if (props.isSmall) className.push("btn-sm");
   if (props.isBlock) className.push("btn-block");
   if (props.hasShadow) className.push("btn-shadow");
+  if (props.isLight) className.push("btn-light");
 
   const onClick = () => {
     if (props.onClick) props.onClick();
@@ -17,7 +18,10 @@ export default function Button(props) {
   if (props.isDisabled || props.isLoading) {
     if (props.isDisabled) className.push("disabled");
     return (
-      <span className={className.join(" ")} style={props.style}>
+      <span
+        className={className.join(" ")}
+        style={props.style}
+      >
         {props.isLoading ? (
           <>
             <span className="spinner-border spinner-border-sm mx-5"></span>
@@ -79,6 +83,7 @@ Button.propTypes = {
   isLoading: propTypes.bool,
   isSmall: propTypes.bool,
   isLarge: propTypes.bool,
+  isLight: propTypes.bool,
   isBlock: propTypes.bool,
   isExternal: propTypes.bool,
   hasShadow: propTypes.bool,

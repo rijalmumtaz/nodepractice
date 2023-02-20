@@ -32,18 +32,27 @@ export default function Bookinginformation(props) {
                   <div className="col">
                     <div className="meta-wrapper">
                       <h5>{itemDetails.name}</h5>
-                      <span className="text-gray-500">
+                      <span
+                        className="text-gray-500 fw-light"
+                        style={{ color: "#b0b0b0" }}
+                      >
                         {itemDetails.city}, {itemDetails.country}
                       </span>
                     </div>
-                    <div className="col-auto">
-                      <span>
-                        ${+checkout.duration * itemDetails.price} USD
-                        <span className="text-gray-500"> per </span>
-                        {checkout.duration} {itemDetails.unit}
-                        {+checkout.duration > 1 ? "s" : ""}
+                  </div>
+                  <div className="col-auto">
+                    <span className="">
+                      ${+checkout.duration * itemDetails.price} USD
+                      <span
+                        className="text-gray-500 fw-light"
+                        style={{ color: "#b0b0b0" }}
+                      >
+                        {" "}
+                        per{" "}
                       </span>
-                    </div>
+                      {checkout.duration} {itemDetails.unit}
+                      {+checkout.duration > 1 ? "s" : ""}
+                    </span>
                   </div>
                 </div>
               </div>

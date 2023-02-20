@@ -8,6 +8,7 @@ import Stepper, {
   Meta,
   MainContent,
 } from "elements/Stepper";
+
 import Bookinginformation from "parts/Checkout/Bookinginformation";
 import Payment from "parts/Checkout/Payment";
 import Completed from "parts/Checkout/Completed";
@@ -43,6 +44,7 @@ export default class Checkout extends Component {
 
   render() {
     const { data } = this.state;
+    // console.log(data);
 
     const checkout = {
       duration: 3,
@@ -84,10 +86,7 @@ export default class Checkout extends Component {
       <>
         <Header isCentered />
 
-        <Stepper
-          steps={steps}
-          // data={data}
-        >
+        <Stepper steps={steps}>
           {(prevStep, nextStep, currentStep, steps) => (
             <>
               <Numbering
@@ -106,7 +105,7 @@ export default class Checkout extends Component {
                 current={currentStep}
               />
 
-              {currentStep === "bookinginformation" && (
+              {currentStep === "bookingInformation" && (
                 <Controller>
                   {/* conditional for hiding the button */}
                   {data.firstName !== "" &&
@@ -132,6 +131,7 @@ export default class Checkout extends Component {
                     isBlock
                     isLight
                     href={`/properties/${itemDetails._id}`}
+                    style={{ padding: "0 .375rem 0 .375rem", width: 161.4 }}
                   >
                     Cancel
                   </Button>
@@ -161,6 +161,7 @@ export default class Checkout extends Component {
                     isBlock
                     isLight
                     href={prevStep}
+                    style={{ padding: "0 .375rem 0 .375rem", width: 161.4 }}
                   >
                     Cancel
                   </Button>
@@ -175,6 +176,7 @@ export default class Checkout extends Component {
                     isBlock
                     hasShadow
                     href=""
+                    style={{ padding: "0 .375rem 0 .375rem", width: 170 }}
                   >
                     Back to Home
                   </Button>
