@@ -40,10 +40,12 @@ booking : {
         night : number
     }],
     memberId : [{_id : ObjectId}],
-    bannkId : [{_id : ObjectId}],
+    bankId : [{_id : ObjectId}],
     proofPayment : string,
     bankFrom : string,
     accountHolder : string
+    imageUrl : string,
+    status : string
 }
 
 member : {
