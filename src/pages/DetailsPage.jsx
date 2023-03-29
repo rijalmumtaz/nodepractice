@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { Fade } from "react-reveal";
 
 import Header from "parts/Header";
 import PageDetailTitle from "parts/PageDetailTitle";
 import FeaturedImage from "parts/FeaturedImage";
-
 import ItemDetails from "json/itemDetails.json";
 import PageDetailDescription from "parts/PageDetailDescription";
 import BookingForm from "parts/BookingForm";
@@ -12,7 +11,56 @@ import Categories from "parts/Categories";
 import Testimoni from "parts/Testimoni";
 import Footer from "parts/Footer";
 
-export default class DetailsPage extends Component {
+// redux
+import { connect } from "react-redux"; // function connects a React component to a Redux store.
+import { checkoutBooking } from "store/actions/checkout";
+
+function DetailsPage(props) {
+  useEffect(() => {
+    window.title = "Staycation | Details Page";
+    window.scrollTo(0, 0);
+  }, []);
+
+  const breadcrumbList = [
+    { pageTitle: "Home", pageHref: "" },
+    { pageTitle: "House Details", pageHref: "" },
+  ];
+
+  return (
+    <>
+      <Header {...props} />
+      <PageDetailTitle
+        breadcrumb={breadcrumbList}
+        data={ItemDetails}
+      />
+      <FeaturedImage data={ItemDetails.imageUrls} />
+      <section className="container">
+        <div className="row">
+          <div className="col-7 pr-5">
+            <Fade bottom>
+              <PageDetailDescription data={ItemDetails} />
+            </Fade>
+          </div>
+          <div className="col-5">
+            <Fade bottom>
+              <BookingForm
+                itemDetails={ItemDetails}
+                startBooking={props.checkoutBooking}
+              />
+            </Fade>
+          </div>
+        </div>
+      </section>
+      <Categories data={ItemDetails.categories} />
+      <Testimoni data={ItemDetails.testimonial} />
+      <Footer />
+    </>
+  );
+}
+
+// old syntax
+<>
+  {/* class DetailsPage extends Component {
   componentDidMount() {
     window.title = "Staycation | Details Page";
     window.scrollTo(0, 0);
@@ -39,7 +87,10 @@ export default class DetailsPage extends Component {
             </div>
             <div className="col-5">
               <Fade bottom>
-                <BookingForm itemDetails={ItemDetails} />
+                <BookingForm
+                  itemDetails={ItemDetails}
+                  startBooking={this.props.checkoutBooking}
+                />
               </Fade>
             </div>
           </div>
@@ -51,3 +102,8 @@ export default class DetailsPage extends Component {
     );
   }
 }
+
+export default connect(null, { checkoutBooking })(DetailsPage); */}
+</>;
+
+export default connect(null, { checkoutBooking })(DetailsPage);

@@ -4,17 +4,18 @@ import {
   compose,
   legacy_createStore,
 } from "@reduxjs/toolkit";
+
 // redux-thunk, which allows simple asynchronous use of dispatch
 import thunk from "redux-thunk";
 import rootReducer from "./reducers/index";
 
 // init state
-const initialState = {};
+// const initialState = {};
 
 // const for put middleware which have imported
 const middleware = [thunk];
 
-export default function configureStore(initialState) {
+export default function configureStore(initialState = {}) {
   const store = legacy_createStore(
     rootReducer,
     initialState,

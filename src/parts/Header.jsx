@@ -9,9 +9,6 @@ export default function Header(props) {
   const getNavLinkClass = (path) => {
     return location.pathname === path ? " active" : "";
   };
-  // console.log("pathname", location.pathname);
-
-  //aku mau commit
 
   if (props.isCentered) {
     return (
