@@ -17,32 +17,13 @@ export default function BookingForm(props) {
     },
   });
 
-  const takePrevDate = {
-    startDate: new Date(
-      data.date.startDate.setDate(data.date.startDate.getDate() - 1)
-    ),
-    endDate: new Date(
-      data.date.endDate.setDate(data.date.endDate.getDate() - 1)
-    ),
-  };
-
-  const handlePrevDate = () => {
-    const startDate = new Date(
-      data.date.startDate.setDate(data.date.startDate.getDate() + 1)
-    );
-    const endDate = new Date(
-      data.date.endDate.setDate(data.date.endDate.getDate() + 1)
-    );
-
-    return startDate, endDate;
-  };
-
-  const prevDate = useRef(takePrevDate);
-  const prevDuration = useRef(data.duration - 1);
+  const prevDate = useRef({});
+  const prevDuration = useRef(0);
 
   const updateData = (e) => {
-    prevDuration.current += 1;
-    handlePrevDate();
+    prevDuration.current = data.duration;
+    prevDate.current = data.date;
+
     setData({
       ...data,
       [e.target.name]: e.target.value,
@@ -62,7 +43,6 @@ export default function BookingForm(props) {
         },
       });
     }
-
     if (prevDuration.current !== data.duration) {
       const startDate = new Date(data.date.startDate);
       const endDate = new Date(
@@ -76,10 +56,7 @@ export default function BookingForm(props) {
         },
       });
     }
-  }, []);
-
-  console.log(prevDate.current);
-  console.log(data.date);
+  }, [prevDate.current, prevDuration.current]);
 
   // func for storing payload
   const startBookingFunction = () => {
@@ -183,8 +160,8 @@ export default function BookingForm(props) {
       const startDate = new Date(data.date.startDate);
       const endDate = new Date(data.date.endDate);
       const countDuration = new Date(endDate - startDate).getDate();
-      console.log(prevState.data.date);
       console.log(data.date);
+      console.log(prevState.data.date);
       this.setState({
         data: {
           ...this.state.data,
