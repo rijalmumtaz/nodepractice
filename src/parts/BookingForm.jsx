@@ -37,10 +37,8 @@ export default function BookingForm(props) {
       const endDate = new Date(data.date.endDate);
       const countDuration = new Date(endDate - startDate).getDate();
       setData({
-        data: {
-          ...data,
-          duration: countDuration,
-        },
+        ...data,
+        duration: countDuration,
       });
     }
     if (prevDuration.current !== data.duration) {
