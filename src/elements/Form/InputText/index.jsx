@@ -18,7 +18,6 @@ export default function Text(props) {
 
   const [hasError, setHasError] = useState(null);
   let pattern = "";
-  // if (type === "email") pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+s/;
   if (type === "email")
     pattern =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -38,6 +37,7 @@ export default function Text(props) {
     }
 
     if (type === "tel") {
+      // when u input letter inside this <input>, e.target.validity.valid must be false. So porps.onChange never run
       if (e.target.validity.valid) props.onChange(target);
     } else {
       props.onChange(target);

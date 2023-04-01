@@ -16,7 +16,10 @@ import Completed from "parts/Checkout/Completed";
 import itemDetails from "json/itemDetails.json";
 import { Fade } from "react-reveal";
 
-export default function Checkout(props) {
+// redux
+import { connect } from "react-redux";
+
+function Checkout(props) {
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
@@ -27,19 +30,42 @@ export default function Checkout(props) {
     bankHolder: "",
   });
 
-  const onChange = (e) => {
-    setData({
-      ...data,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const { checkout } = props;
 
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
 
-  const checkout = {
-    duration: 3,
+  if (!checkout) {
+    return (
+      <div className="container">
+        <div
+          className="row align-items-center justify-content-center text-center"
+          style={{ height: "100vh" }}
+        >
+          <div className="col-3">
+            Pilih Kamar Dulu
+            <div>
+              <Button
+                className="btn mt-5"
+                type="link"
+                href="/"
+                isLight
+              >
+                Back
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const onChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const steps = {
@@ -179,6 +205,13 @@ export default function Checkout(props) {
     </>
   );
 }
+
+// for storing data from previous page
+const mapStateToProps = (state) => ({
+  checkout: state.checkout,
+});
+
+export default connect(mapStateToProps)(Checkout);
 
 // old code
 <>

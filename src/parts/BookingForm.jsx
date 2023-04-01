@@ -17,6 +17,7 @@ export default function BookingForm(props) {
     },
   });
 
+  const navigate = useNavigate();
   const prevDate = useRef({});
   const prevDuration = useRef(0);
 
@@ -56,16 +57,17 @@ export default function BookingForm(props) {
     }
   }, [prevDate.current, prevDuration.current]);
 
-  // func for storing payload
+  // func for storing payload, payload is in checkout action redux
   const startBookingFunction = () => {
     startBooking({
-      _id: this.props.itemDetails._id,
+      _id: itemDetails._id,
       duration: data.duration,
       date: {
         startDate: data.date.startDate,
         endDate: data.date.endDate,
       },
     });
+    navigate("/checkout");
   };
 
   return (
@@ -115,7 +117,7 @@ export default function BookingForm(props) {
         hasShadow
         isPrimary
         isBlock
-        onClick={startBooking}
+        onClick={startBookingFunction}
       >
         Continue to Book
       </Button>
