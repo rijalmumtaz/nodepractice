@@ -1,38 +1,59 @@
 import React, { Component, useEffect, useState } from "react";
 import Header from "parts/Header";
 
-import landingPage from "json/landingPage.json";
 import Hero from "parts/Hero";
 import MostPicked from "parts/MostPicked";
 import Categories from "parts/Categories";
 import Testimoni from "parts/Testimoni";
 import Footer from "parts/Footer";
 
-export default function LandingPage(props) {
+// redux
+import { connect } from "react-redux";
+import { fetchPage } from "store/actions/page";
+
+function LandingPage(props) {
   const [refMostPicked, setRefMostPicked] = useState(React.createRef());
+
+  const { page } = props;
+
+  useEffect(() => {
+    // logic axios
+    if (!page.landingPage)
+      props.fetchPage(
+        `${process.env.REACT_APP_HOST}/api/v1/member/landing-page`,
+        "landingPage"
+      );
+  });
 
   useEffect(() => {
     window.title = "Staycation | Home";
     window.scrollTo(0, 0);
   }, []);
 
+  if (!page.hasOwnProperty("landingPage")) return null;
+
   return (
     <>
       <Header {...props}></Header>
       <Hero
         refMostPicked={refMostPicked}
-        data={landingPage.hero}
+        data={page.landingPage.hero}
       />
       <MostPicked
         refMostPicked={refMostPicked}
-        data={landingPage.mostPicked}
+        data={page.landingPage.mostPicked}
       />
-      <Categories data={landingPage.categories} />
-      <Testimoni data={landingPage.testimonial}></Testimoni>
+      <Categories data={page.landingPage.category} />
+      <Testimoni data={page.landingPage.testimonial}></Testimoni>
       <Footer />
     </>
   );
 }
+
+// func for storing redux data
+const mapStateToProps = (state) => ({
+  page: state.page,
+});
 
 // old syntax
 <>
@@ -65,3 +86,5 @@ export default function LandingPage(props) {
   }
 } */}
 </>;
+
+export default connect(mapStateToProps, { fetchPage })(LandingPage);

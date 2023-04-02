@@ -206,7 +206,7 @@ function Checkout(props) {
   );
 }
 
-// for storing data from previous page
+// for storing reudx data. where data come from? data from prev page
 const mapStateToProps = (state) => ({
   checkout: state.checkout,
 });
