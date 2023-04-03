@@ -10,7 +10,7 @@ export default function PageDetailDescription({ data }) {
         className="row"
         style={{ marginTop: 30 }}
       >
-        {data.features.map((feature, index) => {
+        {data.featuredId.map((feature, index) => {
           return (
             <div
               className="col-3"
@@ -18,7 +18,7 @@ export default function PageDetailDescription({ data }) {
               style={{ marginBottom: 20 }}
             >
               <img
-                src={feature.imageUrl}
+                src={`${process.env.REACT_APP_HOST}/${feature.imageUrl}`}
                 alt={feature.name}
                 width="38"
                 className="d-block mb-2"

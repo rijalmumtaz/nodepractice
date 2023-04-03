@@ -5,7 +5,7 @@ export default function FeaturedImage({ data }) {
   return (
     <section className="container">
       <div className="container-grid sm">
-        {data.map((item, index) => {
+        {data.map((image, index) => {
           return (
             <div
               key={`FeaturedImage-${index}`}
@@ -20,8 +20,8 @@ export default function FeaturedImage({ data }) {
                 <div className="card h-100">
                   <figure className="img-wrapper">
                     <img
-                      src={item.url}
-                      alt={item.id}
+                      src={`${process.env.REACT_APP_HOST}/${image.imageUrl}`}
+                      alt={image.id}
                       className="img-cover"
                     />
                   </figure>
