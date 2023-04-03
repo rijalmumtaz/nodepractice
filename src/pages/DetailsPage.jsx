@@ -19,7 +19,7 @@ import { fetchPage } from "store/actions/page";
 
 function DetailsPage(props) {
   const { page } = props;
-  // init params for
+  // init params for take id from URL
   let { id } = useParams();
 
   useEffect(() => {
@@ -40,8 +40,6 @@ function DetailsPage(props) {
     { pageTitle: "Home", pageHref: "" },
     { pageTitle: "House Details", pageHref: "" },
   ];
-
-  console.log(page[id]);
 
   if (!page[id]) return null;
 
