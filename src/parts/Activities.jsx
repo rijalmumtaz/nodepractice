@@ -30,7 +30,11 @@ export default function Activities({ data }) {
                       style={{ height: 180 }}
                     >
                       <img
-                        src={`${process.env.REACT_APP_HOST}/${activity.imageUrl}`}
+                        src={
+                          activity.imageUrl
+                            ? `${process.env.REACT_APP_HOST}/${activity.imageUrl}`
+                            : ""
+                        }
                         alt={activity.name}
                         className="img-cover"
                       />
