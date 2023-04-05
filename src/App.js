@@ -1,4 +1,5 @@
 import "assets/scss/style.scss";
+import { ToastContainer } from "react-toastify";
 
 import Example from "pages/Example";
 import LandingPage from "pages/LandingPage";
@@ -34,6 +35,7 @@ function App() {
             element={<NotFound />}
           />
         </Routes>
+        <ToastContainer></ToastContainer>
       </BrowserRouter>
     </div>
   );

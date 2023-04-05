@@ -39,9 +39,6 @@ function Checkout(props) {
 
   const { checkout, page } = props;
 
-  console.log(data);
-  console.log("goblok (ツ)");
-
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
@@ -62,14 +59,9 @@ function Checkout(props) {
     payload.append("bankFrom", data.bankName);
     // payload.append("bankId", checkout.bankId);
 
-    props
-      .submitBooking(payload)
-      .then(() => {
-        nextStep();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    props.submitBooking(payload).then(() => {
+      nextStep();
+    });
   };
 
   if (!checkout) {

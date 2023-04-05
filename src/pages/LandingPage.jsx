@@ -18,11 +18,7 @@ function LandingPage(props) {
 
   useEffect(() => {
     // logic axios
-    if (!page.landingPage)
-      props.fetchPage(
-        `${process.env.REACT_APP_HOST}/api/v1/member/landing-page`,
-        "landingPage"
-      );
+    if (!page.landingPage) props.fetchPage(`/landing-page`, "landingPage");
   });
 
   useEffect(() => {

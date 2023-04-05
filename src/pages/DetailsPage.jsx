@@ -24,10 +24,7 @@ function DetailsPage(props) {
 
   useEffect(() => {
     if (!page[id]) {
-      props.fetchPage(
-        `${process.env.REACT_APP_HOST}/api/v1/member/detail-page/${id}`,
-        id
-      );
+      props.fetchPage(`/detail-page/${id}`, id);
     }
   }, []);
 
