@@ -1,4 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 import Header from "parts/Header";
 import Button from "elements/Button";
@@ -30,7 +31,12 @@ function Checkout(props) {
     bankHolder: "",
   });
 
-  const { checkout } = props;
+  // init params for take id from URL
+  let { id } = useParams();
+  // init navigate
+  const navigate = useNavigate();
+
+  const { checkout, page } = props;
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -48,8 +54,8 @@ function Checkout(props) {
             <div>
               <Button
                 className="btn mt-5"
-                type="link"
-                href="/"
+                type="button"
+                onClick={() => navigate(-1)}
                 isLight
               >
                 Back
@@ -76,7 +82,7 @@ function Checkout(props) {
         <Bookinginformation
           data={data}
           checkout={checkout}
-          itemDetails={itemDetails}
+          itemDetails={page[checkout._id]}
           onChange={onChange}
         />
       ),
@@ -87,7 +93,7 @@ function Checkout(props) {
       content: (
         <Payment
           data={data}
-          itemDetails={itemDetails}
+          itemDetails={page[checkout._id]}
           checkout={checkout}
           onChange={onChange}
         />
@@ -147,7 +153,7 @@ function Checkout(props) {
                   type="link"
                   isBlock
                   isLight
-                  href={`/properties/${itemDetails._id}`}
+                  href={`/properties/${checkout._id}`}
                   style={{ padding: "0 .375rem 0 .375rem", width: 161.4 }}
                 >
                   Cancel
@@ -192,7 +198,7 @@ function Checkout(props) {
                   isPrimary
                   isBlock
                   hasShadow
-                  href=""
+                  href="/"
                   style={{ padding: "0 .375rem 0 .375rem", width: 170 }}
                 >
                   Back to Home
@@ -209,6 +215,7 @@ function Checkout(props) {
 // for storing reudx data. where data come from? data from prev page
 const mapStateToProps = (state) => ({
   checkout: state.checkout,
+  page: state.page,
 });
 
 export default connect(mapStateToProps)(Checkout);

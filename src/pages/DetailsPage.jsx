@@ -37,7 +37,7 @@ function DetailsPage(props) {
   }, []);
 
   const breadcrumbList = [
-    { pageTitle: "Home", pageHref: "" },
+    { pageTitle: "Home", pageHref: "/" },
     { pageTitle: "House Details", pageHref: "" },
   ];
 
