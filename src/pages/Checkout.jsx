@@ -19,6 +19,7 @@ import { Fade } from "react-reveal";
 
 // redux
 import { connect } from "react-redux";
+import { submitBooking } from "store/actions/checkout";
 
 function Checkout(props) {
   const [data, setData] = useState({
@@ -38,9 +39,38 @@ function Checkout(props) {
 
   const { checkout, page } = props;
 
+  console.log(data);
+  console.log("goblok (ツ)");
+
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
+
+  const _Submit = (nextStep) => {
+    const payload = new FormData();
+
+    payload.append("firstName", data.firstName);
+    payload.append("lastName", data.lastName);
+    payload.append("email", data.email);
+    payload.append("phoneNumber", data.phone);
+    payload.append("accountHolder", data.bankHolder);
+    payload.append("idItem", checkout._id);
+    payload.append("duration", checkout.duration);
+    payload.append("bookingDateStart", checkout.date.startDate);
+    payload.append("bookingDateEnd", checkout.date.endDate);
+    payload.append("image", data.proofPayment[0]);
+    payload.append("bankFrom", data.bankName);
+    // payload.append("bankId", checkout.bankId);
+
+    props
+      .submitBooking(payload)
+      .then(() => {
+        nextStep();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   if (!checkout) {
     return (
@@ -172,7 +202,7 @@ function Checkout(props) {
                         isBlock
                         isPrimary
                         hasShadow
-                        onClick={nextStep}
+                        onClick={() => _Submit(nextStep)}
                       >
                         Continue to Book
                       </Button>
@@ -218,7 +248,7 @@ const mapStateToProps = (state) => ({
   page: state.page,
 });
 
-export default connect(mapStateToProps)(Checkout);
+export default connect(mapStateToProps, { submitBooking })(Checkout);
 
 // old code
 <>
