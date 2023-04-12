@@ -3,7 +3,6 @@ import React from "react";
 import { Fade } from "react-reveal";
 
 export default function Categories({ data }) {
-  console.log(data);
   return data.map((category, index1) => {
     if (category.itemId.length === 0) return null;
     return (
