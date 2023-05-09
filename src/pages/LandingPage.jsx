@@ -17,7 +17,7 @@ function LandingPage(props) {
   const { page } = props;
 
   useEffect(() => {
-    // logic axios
+    // logic axios, if page.landingpage not exist put page.landingpage
     if (!page.landingPage) props.fetchPage(`/landing-page`, "landingPage");
   });
 
